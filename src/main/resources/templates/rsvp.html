@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html th:replace="base :: layout('rsvp', ~{::template_head}, ~{::template_body})" xmlns:th="http://www.thymeleaf.org">
+
+<head th:fragment="template_head">
+</head>
+
+<body th:fragment="template_body">
+  <h2>Invitation Response</h2>
+  <p>Please enter the invitation code you received on your RSVP card to register your response.</p>
+
+  <form>
+    <div class="form-group">
+      <label for="inviteCode">Invitation Code</label>
+      <input type="text" class="form-control" id="inviteCode" placeholder="Invite Code">
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+</body>
+
+</html>

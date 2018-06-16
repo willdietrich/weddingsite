@@ -21,10 +21,13 @@
 
   <img class="header-image" th:src="@{/resources/will_ann_miami.jpg}" th:title="Love" th:alt="Love">
 
-  <nav th:replace="~{navigation :: nav-bar(${page_title})}"></nav>
 
-  <div class="container" th:insert="${body_content}">
-    <!-- Content here -->
+  <div class="container">
+    <nav th:replace="~{navigation :: nav-bar(${page_title})}"></nav>
+
+    <div th:insert="${body_content}">
+      <!-- Content here -->
+    </div>
   </div>
 
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"

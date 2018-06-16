@@ -20,4 +20,9 @@ public class WeddingController {
     public String infoPage() {
         return "info";
     }
+
+    @GetMapping("/rsvp")
+    public String getRSVP() {
+        return "rsvp";
+    }
 }
