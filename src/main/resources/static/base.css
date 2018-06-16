@@ -1,0 +1,11 @@
+.site-title {
+    text-align: center;
+    font-size: 65px;
+    font-family: 'Great Vibes', cursive;
+}
+
+.header-image {
+    margin: 15px auto;
+    height: 300px;
+    display: block;
+}

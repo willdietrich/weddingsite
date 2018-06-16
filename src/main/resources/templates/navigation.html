@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+
+  <ul th:fragment="nav-bar (page_title)" class="nav nav-pills nav-fill justify-content-center">
+    <li class="nav-item">
+      <a th:class="nav-link" th:classappend="${page_title == 'about'} ? 'active'" th:href="@{/about}">Home</a>
+    </li>
+    <li class="nav-item">
+      <a th:class="nav-link" th:classappend="${page_title == 'party'} ? 'active'" th:href="@{/party}">Wedding Party</a>
+    </li>
+    <li class="nav-item">
+      <a th:class="nav-link" th:classappend="${page_title == 'info'} ? 'active'" th:href="@{/info}">Information</a>
+    </li>
+    <li class="nav-item">
+      <a th:class="nav-link" th:classappend="${page_title == 'registry'} ? 'active'" th:href="@{/registry}">Registry</a>
+    </li>
+    <li class="nav-item">
+      <a th:class="nav-link" th:classappend="${page_title == 'photos'} ? 'active'" th:href="@{/photos}">Photos</a>
+    </li>
+    <li class="nav-item">
+      <a th:class="nav-link" th:classappend="${page_title == 'rsvp'} ? 'active'" th:href="@{/rsvp}">RSVP</a>
+    </li>
+  </ul>
+
+</body>
+</html>
