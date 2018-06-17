@@ -13,8 +13,10 @@ public class WeddingController {
 
     WeddingController(RsvpInviteRepository rsvpInviteRepo) {
         this.rsvpInviteRepo =rsvpInviteRepo;
-
     }
+
+    @GetMapping("/")
+    public String landingRedirect() { return "redirect:/about"; }
 
     @GetMapping("/about")
     public String aboutPage() {
