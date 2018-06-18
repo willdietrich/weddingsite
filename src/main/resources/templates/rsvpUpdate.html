@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html th:replace="base :: layout('RSVP', ~{::template_head}, ~{::template_body})" xmlns:th="http://www.thymeleaf.org">
+
+<head th:fragment="template_head">
+  <link rel="stylesheet" th:href="@{/resources/rsvp.css}">
+</head>
+
+<body th:fragment="template_body">
+  <h2>Invitation Response</h2>
+  <p>Please update your RSVP response below.</p>
+
+  <form>
+    <div class="form-group">
+      <div class="row">
+        <div class="col"><h3 class="input_label">Attendee</h3></div>
+        <div class="col"><h3 class="input_label">Response</h3></div>
+      </div>
+
+
+      <div class="row">
+        <div class="col">
+          <input type="text" class="form-control" id="inviteCode" placeholder="Guest Name">
+        </div>
+
+        <div class="col">
+          <div class="form-check">
+            <label class="form-check-label">
+              <input class="form-check-input" type="radio" name="attending" value="true" checked>
+              Attending
+            </label>
+          </div>
+          <div class="form-check">
+            <label class="form-check-label">
+              <input class="form-check-input" type="radio" name="attending" value="false" checked>
+              Not Attending
+            </label>
+          </div>
+        </div>
+      </div>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+</body>
+
+</html>

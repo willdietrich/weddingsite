@@ -8,22 +8,22 @@
 
   <ul th:fragment="nav-bar (page_title)" class="nav nav-pills nav-fill justify-content-center">
     <li class="nav-item">
-      <a th:class="nav-link" th:classappend="${page_title == 'about'} ? 'active'" th:href="@{/about}">Home</a>
+      <a th:class="nav-link" th:classappend="${page_title == 'About'} ? 'active'" th:href="@{/about}">Home</a>
     </li>
     <li class="nav-item">
-      <a th:class="nav-link" th:classappend="${page_title == 'party'} ? 'active'" th:href="@{/party}">Wedding Party</a>
+      <a th:class="nav-link" th:classappend="${page_title == 'Party'} ? 'active'" th:href="@{/party}">Wedding Party</a>
     </li>
     <li class="nav-item">
-      <a th:class="nav-link" th:classappend="${page_title == 'info'} ? 'active'" th:href="@{/info}">Information</a>
+      <a th:class="nav-link" th:classappend="${page_title == 'Info'} ? 'active'" th:href="@{/info}">Information</a>
     </li>
     <li class="nav-item">
-      <a th:class="nav-link" th:classappend="${page_title == 'registry'} ? 'active'" th:href="@{/registry}">Registry</a>
+      <a th:class="nav-link" th:classappend="${page_title == 'Registry'} ? 'active'" th:href="@{/registry}">Registry</a>
     </li>
     <li class="nav-item">
-      <a th:class="nav-link" th:classappend="${page_title == 'photos'} ? 'active'" th:href="@{/photos}">Photos</a>
+      <a th:class="nav-link" th:classappend="${page_title == 'Photos'} ? 'active'" th:href="@{/photos}">Photos</a>
     </li>
     <li class="nav-item">
-      <a th:class="nav-link" th:classappend="${page_title == 'rsvp'} ? 'active'" th:href="@{/rsvp}">RSVP</a>
+      <a th:class="nav-link" th:classappend="${page_title == 'RSVP'} ? 'active'" th:href="@{/rsvp}">RSVP</a>
     </li>
   </ul>
 

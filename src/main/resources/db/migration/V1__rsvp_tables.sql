@@ -9,7 +9,7 @@ CREATE TABLE rsvp_invite (
 CREATE TABLE rsvp_guest (
   id BIGINT UNSIGNED NOT NULL AUTO_INCREMENT,
   rsvp_invite_id BIGINT UNSIGNED NOT NULL,
-  name VARCHAR(255) NOT NULL,
+  name VARCHAR(255),
   attending BIT NOT NULL DEFAULT 0,
   PRIMARY KEY (id),
   FOREIGN KEY (rsvp_invite_id)

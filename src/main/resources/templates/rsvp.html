@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html th:replace="base :: layout('rsvp', ~{::template_head}, ~{::template_body})" xmlns:th="http://www.thymeleaf.org">
+<html th:replace="base :: layout('RSVP', ~{::template_head}, ~{::template_body})" xmlns:th="http://www.thymeleaf.org">
 
 <head th:fragment="template_head">
 </head>
@@ -8,10 +8,12 @@
   <h2>Invitation Response</h2>
   <p>Please enter the invitation code you received on your RSVP card to register your response.</p>
 
-  <form>
+  <form action="" method="GET">
     <div class="form-group">
       <label for="inviteCode">Invitation Code</label>
-      <input type="text" class="form-control" id="inviteCode" placeholder="Invite Code">
+      <input type="text" class="form-control" id="inviteCode" name="inviteCode" placeholder="Invite Code" th:value="${enteredCode}">
+      <div class="alert alert-warning" role="alert" th:if="${errors.containsKey('inviteCode')}" th:text="${errors.get('inviteCode')}">
+      </div>
     </div>
     <button type="submit" class="btn btn-primary">Submit</button>
   </form>
