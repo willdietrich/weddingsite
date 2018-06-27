@@ -13,6 +13,10 @@ public class RsvpInvite {
 
     private Integer code;
 
+    private String belongsTo;
+
+    private Integer inviteCount;
+
     @OneToMany(mappedBy = "rsvpInvite", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<RsvpGuest> guests = new ArrayList<RsvpGuest>();
 
@@ -35,6 +39,30 @@ public class RsvpInvite {
 
     public void setCode(Integer code) {
         this.code = code;
+    }
+
+    public String getBelongsTo() {
+        return belongsTo;
+    }
+
+    public void setBelongsTo(String belongsTo) {
+        this.belongsTo = belongsTo;
+    }
+
+    public Integer getInviteCount() {
+        return inviteCount;
+    }
+
+    public void setInviteCount(Integer inviteCount) {
+        this.inviteCount = inviteCount;
+    }
+
+    public List<RsvpGuest> getGuests() {
+        return guests;
+    }
+
+    public void setGuests(List<RsvpGuest> guests) {
+        this.guests = guests;
     }
 
     public LocalDateTime getRedeemedOn() {

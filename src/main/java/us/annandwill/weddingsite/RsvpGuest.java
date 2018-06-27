@@ -7,16 +7,19 @@ import java.time.LocalDateTime;
 public class RsvpGuest {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     private RsvpInvite rsvpInvite;
 
     private String name;
 
     private Boolean attending;
 
-    public RsvpGuest() {}
+    public RsvpGuest() {
+        this.attending = false;
+    }
 
     public Long getId() {
         return id;

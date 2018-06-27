@@ -9,29 +9,29 @@
   <h2>Invitation Response</h2>
   <p>Please update your RSVP response below.</p>
 
-  <form>
+  <form action="" method="post">
     <div class="form-group">
       <div class="row">
         <div class="col"><h3 class="input_label">Attendee</h3></div>
         <div class="col"><h3 class="input_label">Response</h3></div>
       </div>
 
-
-      <div class="row">
+      <div class="row" th:each="guest,iterStat : ${rsvpInvite.guests}">
         <div class="col">
-          <input type="text" class="form-control" id="inviteCode" placeholder="Guest Name">
+          <input type="text" class="form-control" th:name="'guests[' + ${iterStat.index} + '].name'" th:value="${guest.getName()}" placeholder="Guest Name">
+          <input type="hidden" th:name="'guests[' + ${iterStat.index} + '].id'" th:value="*{guest.getId()}" />
         </div>
 
         <div class="col">
           <div class="form-check">
             <label class="form-check-label">
-              <input class="form-check-input" type="radio" name="attending" value="true" checked>
+              <input class="form-check-input" type="radio" th:name="'guests[' + ${iterStat.index} + '].attending'" th:value="true" th:checked="${guest.getAttending()}">
               Attending
             </label>
           </div>
           <div class="form-check">
             <label class="form-check-label">
-              <input class="form-check-input" type="radio" name="attending" value="false" checked>
+              <input class="form-check-input" type="radio" th:name="'guests[' + ${iterStat.index} + '].attending'" value="false" th:checked="!${guest.getAttending()}">
               Not Attending
             </label>
           </div>
@@ -39,6 +39,7 @@
       </div>
     </div>
     <button type="submit" class="btn btn-primary">Submit</button>
+    <input type="hidden" name="code" th:value="${rsvpInvite.getCode()}" />
   </form>
 </body>
 

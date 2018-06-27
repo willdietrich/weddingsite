@@ -1,6 +1,8 @@
 CREATE TABLE rsvp_invite (
   id BIGINT UNSIGNED NOT NULL AUTO_INCREMENT,
   code INT NOT NULL UNIQUE,
+  belongs_to VARCHAR(255),
+  invite_count INT NOT NULL DEFAULT 1,
   redeemed_on DATETIME DEFAULT NULL,
   updated_on DATETIME DEFAULT NULL,
   PRIMARY KEY (id)

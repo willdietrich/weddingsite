@@ -1,24 +1,25 @@
 package us.annandwill.weddingsite;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 
 @Controller
 public class WeddingController {
 
-    private RsvpInviteRepository rsvpInviteRepo;
-    private Logger logger = LoggerFactory.getLogger("controller");
+    RsvpInviteService inviteService;
 
-    WeddingController(RsvpInviteRepository rsvpInviteRepo) {
-        this.rsvpInviteRepo =rsvpInviteRepo;
+    WeddingController(
+            RsvpInviteService inviteService
+    ) {
+        this.inviteService = inviteService;
     }
 
     @GetMapping("/")
@@ -40,25 +41,64 @@ public class WeddingController {
     }
 
     @GetMapping("/rsvp")
-    public String rsvpInvite(@RequestParam Optional<Integer> inviteCode, Model model) {
+    public String rsvpInvite(@RequestParam Optional<String> inviteCode, Model model) {
         Map<String, String> errors = new HashMap<String, String>();
         model.addAttribute("errors", errors);
 
         if (!inviteCode.isPresent()) {
             return "rsvp";
         } else {
-            Optional<RsvpInvite> invite = this.rsvpInviteRepo.findByCode(inviteCode.get());
-            if (!invite.isPresent()) {
-                errors.put("inviteCode", "Unable to locate invite with entered code.");
-                model.addAttribute("enteredCode", inviteCode.get());
+            String code = inviteCode.get();
+            try {
+                int intValue = Integer.parseInt(code);
+
+                Optional<RsvpInvite> inviteOption = this.inviteService.findByCode(intValue);
+                if (!inviteOption.isPresent()) {
+                    errors.put("inviteCode", "Unable to locate invite with entered code.");
+                    model.addAttribute("enteredCode", inviteCode.get());
+
+                    return "rsvp";
+                }
+
+                RsvpInvite invite = inviteOption.get();
+                this.inviteService.fillGuests(invite);
+                model.addAttribute("rsvpInvite", invite);
+
+                return "rsvpUpdate";
+            } catch (NumberFormatException e) {
+                errors.put("inviteCode", "Invalid invite code entered, please try again.");
 
                 return "rsvp";
             }
-
-            model.addAttribute("rsvpInvite", invite);
-
-
-            return "rsvpUpdate";
         }
+    }
+
+    @PostMapping("/rsvp")
+    public String setInvite(RsvpInvite rsvpSubmission) {
+        Optional<RsvpInvite> inviteOption = this.inviteService.findByCode(rsvpSubmission.getCode());
+
+        if (inviteOption.isPresent()) {
+            RsvpInvite dbInvite = inviteOption.get();
+            List<RsvpGuest> dbGuests = dbInvite.getGuests();
+
+            for (RsvpGuest submissionGuest : rsvpSubmission.getGuests()) {
+                for (RsvpGuest dbGuest: dbGuests) {
+                    if (dbGuest.getId().compareTo(submissionGuest.getId()) == 0) {
+                        dbGuest.setName(submissionGuest.getName());
+                        dbGuest.setAttending(submissionGuest.getAttending());
+                    }
+                }
+            }
+
+            this.inviteService.saveInvite(dbInvite);
+        }
+
+
+        return "redirect:/rsvp-success";
+    }
+
+    @GetMapping("/rsvp-success")
+    public String rsvpSuccess() {
+        return "rsvpSuccess";
     }
 }
