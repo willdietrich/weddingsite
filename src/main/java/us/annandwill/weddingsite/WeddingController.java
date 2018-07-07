@@ -40,6 +40,11 @@ public class WeddingController {
         return "info";
     }
 
+    @GetMapping("/registry")
+    public String registryPage() {
+        return "registry";
+    }
+
     @GetMapping("/rsvp")
     public String rsvpInvite(@RequestParam Optional<String> inviteCode, Model model) {
         Map<String, String> errors = new HashMap<String, String>();
