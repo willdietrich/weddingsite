@@ -2,10 +2,40 @@
 <html th:replace="base :: layout('Party', ~{::template_head}, ~{::template_body})" xmlns:th="http://www.thymeleaf.org">
 
 <head th:fragment="template_head">
+  <link rel="stylesheet" th:href="@{/resources/party.css}">
 </head>
 
 <body th:fragment="template_body">
-    <h2>The Wedding Party</h2>
+  <h2>The Wedding Party</h2>
+
+  <div class="container">
+    <div class="row">
+      <div class="col party-label">
+        <h3>Ann</h3>
+      </div>
+      <div class="col party-label">
+        <h3>Will</h3>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col party-member">
+        <p class="party-title">Renee Johnson, <i>Maid of Honor</i></p>
+      </div>
+      <div class="col party-member">
+        <p class="party-title">John Rivera, <i>Best Man</i></p>
+        <img class="party-member" th:src="@{/resources/john.jpg}" th:title="John" th:alt="'Best Man'"/>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur et nisi sed urna scelerisque auctor.
+          Donec mattis, lorem id hendrerit auctor, odio neque congue risus, sit amet semper orci libero sit amet augue.
+          Vivamus nec odio nec libero tristique scelerisque eget eget arcu. Praesent vestibulum sem eget enim maximus,
+          sit amet efficitur lorem laoreet. Cras sed fringilla ligula. Vivamus pharetra ex non risus cursus tristique.
+          Maecenas sem eros, aliquet et elit et, faucibus mollis nibh. Etiam fringilla felis id metus auctor, eu
+          vestibulum mauris placerat. Integer vestibulum quam sed feugiat luctus.
+        </p>
+        <hr />
+      </div>
+    </div>
+  </div>
 </body>
 
 </html>

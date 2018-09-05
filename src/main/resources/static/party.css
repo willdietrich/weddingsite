@@ -1,0 +1,18 @@
+.party-label,
+.party-member {
+    padding: 0;
+}
+
+.party-label > h3 {
+    text-decoration: underline;
+}
+
+.party-title {
+    margin-bottom: 0;
+    font-size: x-large;
+}
+
+.party-member {
+    margin-right: 8px;
+    float: left;
+}
