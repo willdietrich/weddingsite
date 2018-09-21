@@ -78,6 +78,7 @@ public class WeddingController {
         }
     }
 
+    // TODO Should this be audited?
     @PostMapping("/rsvp")
     public String setInvite(RsvpInvite rsvpSubmission) {
         Optional<RsvpInvite> inviteOption = this.inviteService.findByCode(rsvpSubmission.getCode());
