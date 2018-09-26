@@ -5,7 +5,7 @@ let path = require('path');
 var gulp = require('gulp');
 var sass = require('gulp-sass');
 
-let basedir = "/home/will/dev/weddingsite/";
+let basedir = "../../..";
 
 gulp.task('sass', function () {
     return gulp.src('./scss/main.scss')
