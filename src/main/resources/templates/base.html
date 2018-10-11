@@ -14,16 +14,19 @@
 </head>
 
 <body>
-  <h1 class="site-title">Ann & Will</h1>
+  <div class="wrapper">
+    <div class="container">
+      <h1 class="site-title">Ann & Will</h1>
 
-  <img class="header-image" th:src="@{/resources/will_ann_miami.jpg}" th:title="Love" th:alt="Love">
+      <img class="header-image" th:src="@{/resources/will_ann_miami.jpg}" th:title="Love" th:alt="Love">
 
-
-  <div class="container">
-    <nav th:replace="~{navigation :: nav-bar(${page_title})}"></nav>
-
-    <div th:insert="${body_content}">
-      <!-- Content here -->
+      <nav th:replace="~{navigation :: nav-bar(${page_title})}"></nav>
+      <div th:insert="${body_content}">
+        <!-- Content here -->
+      </div>
+      <div class="footer">
+        <p>&copy Will Dietrich, 2018</p>
+      </div>
     </div>
   </div>
 
