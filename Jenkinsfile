@@ -28,6 +28,10 @@ pipeline {
 
           rtMaven.resolver server: server, releaseRepo: 'libs-release', snapshotRepo: 'libs-snapshot'
           rtMaven.deployer server: server, releaseRepo: 'libs-release-local', snapshotRepo: 'libs-snapshot-local'
+
+          rtMaven.tool = 'm3'
+
+          def buildInfo = rtMaven.run pom: 'weddingsite/pom.xml', goals: 'clean install'
         }
       }
     }
