@@ -1,9 +1,16 @@
 pipeline {
   agent any
+
   tools {
     maven 'm3'
     jdk 'jdk8'
   }
+
+  environment {
+    ARTIFACTORY_CONTEXT_URL = 'https://artifactory.walld.me/artifactory'
+    ARTIFACTORY_CREDS = credentials('67493199-cb0b-4dbc-beae-35475bd3a55f')
+  }
+
   stages {
     stage ('Initialize') {
       steps {
@@ -16,23 +23,7 @@ pipeline {
 
     stage('Build') {
       steps {
-        sh 'mvn -Dmaven.test.skip=true install'
-      }
-    }
-
-    stage('Deploy') {
-      steps {
-        script {
-          def server = Artifactory.server('Artifactory')
-          def rtMaven = Artifactory.newMavenBuild()
-
-          rtMaven.resolver server: server, releaseRepo: 'libs-release', snapshotRepo: 'libs-snapshot'
-          rtMaven.deployer server: server, releaseRepo: 'libs-release-local', snapshotRepo: 'libs-snapshot-local'
-
-          rtMaven.tool = 'm3'
-
-          def buildInfo = rtMaven.run pom: 'pom.xml', goals: '-Dmaven.test.skip=true clean install'
-        }
+        sh 'mvn -Dmaven.test.skip=true deploy'
       }
     }
   }
