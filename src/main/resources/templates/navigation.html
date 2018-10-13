@@ -6,7 +6,7 @@
 </head>
 <body>
 
-  <ul th:fragment="nav-bar (page_title)" class="nav nav-pills nav-fill justify-content-center">
+  <ul th:fragment="nav-bar (page_title)" class="mb-4 nav nav-pills nav-fill justify-content-center">
     <li class="nav-item">
       <a th:class="nav-link" th:classappend="${page_title == 'About'} ? 'active'" th:href="@{/about}">Home</a>
     </li>
