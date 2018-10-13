@@ -31,7 +31,7 @@ pipeline {
 
           rtMaven.tool = 'm3'
 
-          def buildInfo = rtMaven.run pom: 'weddingsite/pom.xml', goals: 'clean install'
+          def buildInfo = rtMaven.run pom: 'pom.xml', goals: 'clean install'
         }
       }
     }
