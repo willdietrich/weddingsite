@@ -22,11 +22,13 @@ pipeline {
 
     stage('Deploy') {
       steps {
-        def server = Artifactory.server('Artifactory')
-        def rtMaven = Artifactory.newMavenBuild()
+        script {
+          def server = Artifactory.server('Artifactory')
+          def rtMaven = Artifactory.newMavenBuild()
 
-        rtMaven.resolver server: server, releaseRepo: 'libs-release', snapshotRepo: 'libs-snapshot'
-        rtMaven.deployer server: server, releaseRepo: 'libs-release-local', snapshotRepo: 'libs-snapshot-local'
+          rtMaven.resolver server: server, releaseRepo: 'libs-release', snapshotRepo: 'libs-snapshot'
+          rtMaven.deployer server: server, releaseRepo: 'libs-release-local', snapshotRepo: 'libs-snapshot-local'
+        }
       }
     }
   }
