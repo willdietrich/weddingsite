@@ -23,7 +23,14 @@ pipeline {
 
     stage('Build') {
       steps {
-        sh 'mvn -Dmaven.test.skip=true deploy'
+        script {
+          withMaven(
+                  maven: 'm3',
+                  jdk: 'jdk8'
+          ) {
+            sh 'mvn -Dmaven.test.skip=true clean deploy'
+          }
+        }
       }
     }
   }
