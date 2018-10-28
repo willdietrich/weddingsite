@@ -7,6 +7,13 @@
 	<artifactId>weddingsite</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>jar</packaging>
+	<description>Site for Will and Ann's Wedding</description>
+	<repositories>
+		<repository>
+			<id>walld</id>
+			<url>https://stash.walld.me</url>
+		</repository>
+	</repositories>
 
 	<name>weddingsite</name>
 	<description>Wedding webapp</description>
