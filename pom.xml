@@ -126,45 +126,6 @@
 					<workingDirectory>${webapp.directory}</workingDirectory>
 				</configuration>
 			</plugin>
-			<plugin>
-				<groupId>org.jfrog.buildinfo</groupId>
-				<artifactId>artifactory-maven-plugin</artifactId>
-				<version>2.6.1</version>
-				<inherited>false</inherited>
-				<executions>
-					<execution>
-						<id>build-info</id>
-						<goals>
-							<goal>publish</goal>
-						</goals>
-						<configuration>
-							<deployProperties>
-								<groupId>${project.groupId}</groupId>
-								<artifactId>${project.artifactId}</artifactId>
-								<version>${project.version}</version>
-							</deployProperties>
-							<publisher>
-								<contextUrl>{{ARTIFACTORY_CONTEXT_URL}}</contextUrl>
-								<username>admin</username>
-								<password>{{ARTIFACTORY_CREDS_PSW}}</password>
-								<repoKey>libs-release-local</repoKey>
-								<snapshotRepoKey>libs-snapshot-local</snapshotRepoKey>
-							</publisher>
-						</configuration>
-					</execution>
-				</executions>
-			</plugin>
 		</plugins>
 	</build>
-
-    <pluginRepositories>
-        <pluginRepository>
-            <snapshots>
-                <enabled>false</enabled>
-            </snapshots>
-            <id>bintray-jfrog-jfrog-jars</id>
-            <name>bintray-plugins</name>
-            <url>https://dl.bintray.com/jfrog/jfrog-jars</url>
-        </pluginRepository>
-    </pluginRepositories>
-</project>
+    </project>
