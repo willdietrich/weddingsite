@@ -2,11 +2,12 @@
 <html th:replace="base :: layout('RSVP', ~{::template_head}, ~{::template_body})" xmlns:th="http://www.thymeleaf.org">
 
 <head th:fragment="template_head">
+  <script th:src="@{/resources/js/registration.js}"></script>
 </head>
 
 <body th:fragment="template_body">
   <h2>Invitation Response</h2>
-  <p>Please update your RSVP response below.</p>
+  <p>Please indicate your RSVP response below. Please provide first and last name for each guest.</p>
 
   <form action="" method="post">
     <div class="form-group">
@@ -19,20 +20,26 @@
         <p class="rsvpgroup_guestlabel" th:text="|Guest ${iterStat.count}:|"></p>
         <div class="row">
           <div class="col">
-            <input type="text" class="form-control" th:name="'guests[' + ${iterStat.index} + '].name'" th:value="${guest.getName()}" placeholder="Guest Name">
+            <input type="text" class="form-control name-input"
+                   th:attr="data-guest-id=${iterStat.index}" th:name="'guests[' + ${iterStat.index} + '].name'"
+                   th:value="${guest.getName()}" placeholder="Guest Name">
             <input type="hidden" th:name="'guests[' + ${iterStat.index} + '].id'" th:value="*{guest.getId()}" />
           </div>
 
           <div class="col">
             <div class="form-check">
               <label class="form-check-label">
-                <input class="form-check-input" type="radio" th:name="'guests[' + ${iterStat.index} + '].attending'" th:value="true" th:checked="${guest.getAttending()}">
+                <input class="form-check-input attending" type="radio"
+                       th:attr="data-guest-id=${iterStat.index}" th:name="'guests[' + ${iterStat.index} + '].attending'"
+                       th:value="true" th:checked="${guest.getAttending()}">
                 Attending
               </label>
             </div>
             <div class="form-check">
               <label class="form-check-label">
-                <input class="form-check-input" type="radio" th:name="'guests[' + ${iterStat.index} + '].attending'" value="false" th:checked="!${guest.getAttending()}">
+                <input class="form-check-input not-attending" type="radio"
+                       th:attr="data-guest-id=${iterStat.index}" th:name="'guests[' + ${iterStat.index} + '].attending'"
+                       value="false" th:checked="!${guest.getAttending()}">
                 Not Attending
               </label>
             </div>
