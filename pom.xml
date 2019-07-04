@@ -13,7 +13,7 @@
 	<repositories>
 		<repository>
 			<id>walld</id>
-			<url>https://git.walld.me</url>
+			<url>https://gitlab.walld.me</url>
 		</repository>
 	</repositories>
 
@@ -128,4 +128,4 @@
 			</plugin>
 		</plugins>
 	</build>
-    </project>
+</project>
