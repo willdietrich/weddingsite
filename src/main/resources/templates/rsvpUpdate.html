@@ -2,12 +2,14 @@
 <html th:replace="base :: layout('RSVP', ~{::template_head}, ~{::template_body})" xmlns:th="http://www.thymeleaf.org">
 
 <head th:fragment="template_head">
-  <script th:src="@{/resources/js/registration.js}"></script>
 </head>
 
 <body th:fragment="template_body">
   <h2>Invitation Response</h2>
-  <p>Please indicate your RSVP response below. Please provide first and last name for each guest.</p>
+  <p>Please indicate your RSVP response below no later than August 10, 2019.</p>
+  <p>Please provide first and last name for each guest.</p>
+  <p>For any questions, please email <a href="mailto:will.a.dietrich@gmail.com">will.a.dietrich@gmail.com</a> or
+    <a href="mailto:annj8150@msn.com">annj8150@msn.com</a></p>
 
   <form action="" method="post">
     <div class="form-group">

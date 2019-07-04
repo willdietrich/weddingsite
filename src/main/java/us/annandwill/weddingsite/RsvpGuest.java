@@ -18,7 +18,7 @@ public class RsvpGuest {
     private Boolean attending;
 
     public RsvpGuest() {
-        this.attending = false;
+        this.attending = true;
     }
 
     public Long getId() {
