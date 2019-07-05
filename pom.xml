@@ -1,26 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>us.annandwill</groupId>
 	<artifactId>weddingsite</artifactId>
-	<version>1.4.0</version>
+	<version>1.5.0</version>
 	<packaging>jar</packaging>
 
 	<name>weddingsite</name>
 	<description>Wedding webapp</description>
-	<repositories>
+	<distributionManagement>
 		<repository>
-			<id>walld</id>
-			<url>https://git.walld.me</url>
+			<id>nexus</id>
+			<name>Releases</name>
+			<url>https://nexus.walld.me/repository/maven-releases/</url>
 		</repository>
-	</repositories>
+		<snapshotRepository>
+			<id>nexus</id>
+			<name>Snapshot</name>
+			<url>https://nexus.walld.me/repository/maven-snapshots/</url>
+		</snapshotRepository>
+	</distributionManagement>
 
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>2.0.2.RELEASE</version>
+		<version>2.1.3.RELEASE</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 
@@ -58,12 +64,28 @@
 		<dependency>
 			<groupId>mysql</groupId>
 			<artifactId>mysql-connector-java</artifactId>
+			<version>8.0.15</version>
 			<scope>runtime</scope>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>com.h2database</groupId>
+			<artifactId>h2</artifactId>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>javax.xml.bind</groupId>
+			<artifactId>jaxb-api</artifactId>
+			<version>2.3.0</version>
+		</dependency>
+		<dependency>
+			<groupId>org.javassist</groupId>
+			<artifactId>javassist</artifactId>
+			<version>3.23.1-GA</version>
 		</dependency>
 	</dependencies>
 
@@ -75,6 +97,11 @@
 				<configuration>
 					<addResources>true</addResources>
 				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-deploy-plugin</artifactId>
+				<version>3.0.0-M1</version>
 			</plugin>
 			<plugin>
 				<groupId>com.github.eirslett</groupId>
@@ -109,34 +136,6 @@
 				<configuration>
 					<workingDirectory>${webapp.directory}</workingDirectory>
 				</configuration>
-			</plugin>
-			<plugin>
-				<groupId>org.jfrog.buildinfo</groupId>
-				<artifactId>artifactory-maven-plugin</artifactId>
-				<version>2.6.1</version>
-				<inherited>false</inherited>
-				<executions>
-					<execution>
-						<id>build-info</id>
-						<goals>
-							<goal>publish</goal>
-						</goals>
-						<configuration>
-							<deployProperties>
-								<groupId>${project.groupId}</groupId>
-								<artifactId>${project.artifactId}</artifactId>
-								<version>${project.version}</version>
-							</deployProperties>
-							<publisher>
-								<contextUrl>{{ARTIFACTORY_CONTEXT_URL}}</contextUrl>
-								<username>admin</username>
-								<password>{{ARTIFACTORY_CREDS_PSW}}</password>
-								<repoKey>libs-release-local</repoKey>
-								<snapshotRepoKey>libs-snapshot-local</snapshotRepoKey>
-							</publisher>
-						</configuration>
-					</execution>
-				</executions>
 			</plugin>
 		</plugins>
 	</build>

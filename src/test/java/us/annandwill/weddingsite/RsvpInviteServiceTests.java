@@ -1,7 +1,5 @@
 package us.annandwill.weddingsite;
 
-import org.apache.tomcat.jni.Local;
-import org.hamcrest.MatcherAssert;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
