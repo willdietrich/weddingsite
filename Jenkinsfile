@@ -6,11 +6,6 @@ pipeline {
     jdk 'jdk8'
   }
 
-  environment {
-    ARTIFACTORY_CONTEXT_URL = 'https://artifactory.walld.me/artifactory'
-    ARTIFACTORY_CREDS = credentials('67493199-cb0b-4dbc-beae-35475bd3a55f')
-  }
-
   stages {
     stage ('Initialize') {
       steps {
