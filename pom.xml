@@ -10,12 +10,18 @@
 
 	<name>weddingsite</name>
 	<description>Wedding webapp</description>
-	<repositories>
+	<distributionManagement>
 		<repository>
-			<id>walld</id>
-			<url>https://git.walld.me</url>
+			<id>nexus</id>
+			<name>Releases</name>
+			<url>https://nexus.walld.me/repository/maven-releases/</url>
 		</repository>
-	</repositories>
+		<snapshotRepository>
+			<id>nexus</id>
+			<name>Snapshot</name>
+			<url>https://nexus.walld.me/repository/maven-snapshots/</url>
+		</snapshotRepository>
+	</distributionManagement>
 
 	<parent>
 		<groupId>org.springframework.boot</groupId>
@@ -93,6 +99,11 @@
 				</configuration>
 			</plugin>
 			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-deploy-plugin</artifactId>
+				<version>3.0.0-M1</version>
+			</plugin>
+			<plugin>
 				<groupId>com.github.eirslett</groupId>
 				<artifactId>frontend-maven-plugin</artifactId>
 				<version>1.6</version>
@@ -126,45 +137,6 @@
 					<workingDirectory>${webapp.directory}</workingDirectory>
 				</configuration>
 			</plugin>
-			<plugin>
-				<groupId>org.jfrog.buildinfo</groupId>
-				<artifactId>artifactory-maven-plugin</artifactId>
-				<version>2.6.1</version>
-				<inherited>false</inherited>
-				<executions>
-					<execution>
-						<id>build-info</id>
-						<goals>
-							<goal>publish</goal>
-						</goals>
-						<configuration>
-							<deployProperties>
-								<groupId>${project.groupId}</groupId>
-								<artifactId>${project.artifactId}</artifactId>
-								<version>${project.version}</version>
-							</deployProperties>
-							<publisher>
-								<contextUrl>{{ARTIFACTORY_CONTEXT_URL}}</contextUrl>
-								<username>admin</username>
-								<password>{{ARTIFACTORY_CREDS_PSW}}</password>
-								<repoKey>libs-release-local</repoKey>
-								<snapshotRepoKey>libs-snapshot-local</snapshotRepoKey>
-							</publisher>
-						</configuration>
-					</execution>
-				</executions>
-			</plugin>
 		</plugins>
 	</build>
-
-    <pluginRepositories>
-        <pluginRepository>
-            <snapshots>
-                <enabled>false</enabled>
-            </snapshots>
-            <id>bintray-jfrog-jfrog-jars</id>
-            <name>bintray-plugins</name>
-            <url>https://dl.bintray.com/jfrog/jfrog-jars</url>
-        </pluginRepository>
-    </pluginRepositories>
 </project>
