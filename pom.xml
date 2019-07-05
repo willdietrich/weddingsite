@@ -10,12 +10,18 @@
 
 	<name>weddingsite</name>
 	<description>Wedding webapp</description>
-	<repositories>
+	<distributionManagement>
 		<repository>
-			<id>walld</id>
-			<url>https://gitlab.walld.me</url>
+			<id>nexus</id>
+			<name>Releases</name>
+			<url>https://nexus.walld.me/repository/maven-releases/</url>
 		</repository>
-	</repositories>
+		<snapshotRepository>
+			<id>nexus</id>
+			<name>Snapshot</name>
+			<url>https://nexus.walld.me/repository/maven-snapshots/</url>
+		</snapshotRepository>
+	</distributionManagement>
 
 	<parent>
 		<groupId>org.springframework.boot</groupId>
@@ -91,6 +97,11 @@
 				<configuration>
 					<addResources>true</addResources>
 				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-deploy-plugin</artifactId>
+				<version>3.0.0-M1</version>
 			</plugin>
 			<plugin>
 				<groupId>com.github.eirslett</groupId>
