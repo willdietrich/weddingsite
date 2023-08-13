@@ -1,0 +1,43 @@
+$gold: #ddc087;
+$burgundy: #8b003d;
+$navy: #00375f;
+$ivory: #f9f7e9;
+
+$background: $gold;
+$nav-pills-link-active-color: $ivory;
+$nav-pills-link-active-bg: $burgundy;
+$link-color: $burgundy;
+
+.wrapper {
+    background: $background;
+}
+
+.container {
+    background: #fff;
+}
+
+.site-title {
+    margin-bottom: 15px;
+    padding-top: 15px;
+    text-align: center;
+    font-size: 65px;
+    font-family: 'Great Vibes', cursive;
+}
+
+.header-image {
+    margin: 15px auto;
+    width: 80%;
+    display: block;
+}
+
+.headline {
+    text-align: center;
+    font-weight: bold;
+    margin-bottom: 2rem;
+}
+
+.footer {
+    overflow: auto;
+    margin-top: 15px;
+    text-align: center;
+}

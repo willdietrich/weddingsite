@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html th:replace="base :: layout('About', ~{::template_head}, ~{::template_body})" xmlns:th="http://www.thymeleaf.org">
+
+<head th:fragment="template_head">
+</head>
+
+<body th:fragment="template_body">
+  <h1  class="headline">Coming September 7, 2019!</h1>
+  <h2 class="headline">#WillYouMarryAnn</h2>
+  <p>
+    Welcome to our wedding homepage! We are very excited to celebrate our special day with you.
+  </p>
+  <p>
+    We hope you can use this site to find all the information you need about our wedding. Most of the information can
+    be found on the <a th:href="@{/info}">Information</a> page. This includes the schedule, locations, and
+    accommodations arranged for the big day!
+  </p>
+  <p>
+    After you receive your invitations, you may choose to either indicate your response on the
+    <a th:href="@{/rsvp}">RSVP</a> page; or you may mail in your response with the provided card.
+  </p>
+  <p>
+    Please make sure to use the hashtag #WillYouMarryAnn in all your social media posts so we can find your pictures
+    from the big day!
+  </p>
+  <p>
+    We are so happy to be able to celebrate with each and every one of you! Thanks for attending.
+  </p>
+  <p>
+    ~ Love, Ann & Will
+  </p>
+  <div class="w-50 mx-auto" >
+    <img class="img-fluid rounded d-block" th:src="@{/resources/will_ann.jpg}" th:title="'Ann and Will'" th:alt="'Ann and Will'">
+  </div>
+</body>
+
+</html>

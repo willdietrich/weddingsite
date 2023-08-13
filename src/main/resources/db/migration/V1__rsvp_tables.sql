@@ -1,0 +1,19 @@
+CREATE TABLE rsvp_invite (
+  id BIGINT UNSIGNED NOT NULL AUTO_INCREMENT,
+  code INT NOT NULL UNIQUE,
+  belongs_to VARCHAR(255),
+  invite_count INT NOT NULL DEFAULT 1,
+  redeemed_on DATETIME DEFAULT NULL,
+  updated_on DATETIME DEFAULT NULL,
+  PRIMARY KEY (id)
+);
+
+CREATE TABLE rsvp_guest (
+  id BIGINT UNSIGNED NOT NULL AUTO_INCREMENT,
+  rsvp_invite_id BIGINT UNSIGNED NOT NULL,
+  name VARCHAR(255),
+  attending BIT NOT NULL DEFAULT 0,
+  PRIMARY KEY (id),
+  FOREIGN KEY (rsvp_invite_id)
+    REFERENCES rsvp_invite(id)
+);

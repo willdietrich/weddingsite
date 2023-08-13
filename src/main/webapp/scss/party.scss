@@ -1,0 +1,22 @@
+.party__label {
+    min-width: 225px;
+    padding: 0;
+    text-decoration: underline;
+}
+
+.party-member {
+
+    &__image {
+        margin-right: 8px;
+    }
+
+    &__title {
+        display: inline-block;
+        margin-bottom: 0;
+        font-size: x-large;
+    }
+
+    height: 300px;
+    min-width: 225px;
+    border-bottom: 1px solid;
+}

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html th:replace="base :: layout('Info', ~{::template_head}, ~{::template_body})" xmlns:th="http://www.thymeleaf.org">
+
+<head th:fragment="template_head">
+</head>
+
+<body th:fragment="template_body">
+    <h2>Information</h2>
+
+    <div class="informationgroup mb-4">
+        <h3 class="informationgroup_title">The Ceremony</h3>
+        <p><em>Our Lady of Grace Catholic Church</em> in Edina, MN from <b>3:00 PM - 4:00 PM</b>.</p>
+        <div class="informationgroup_details">
+            <div class="informationgroup_details_map mx-auto">
+                <iframe
+                    width="100%"
+                    height="300"
+                    frameborder="0" style="border:0"
+                    src="https://www.google.com/maps/embed/v1/place?key=AIzaSyCHneT1cd2iz_vbmDMkIXmkvSeXL-3y7bs
+                        &q=Our+Lady+Of+Grace,Edina+MN" allowfullscreen>
+                </iframe>
+            </div>
+            <div class="informationgroup_details_text">
+                The ceremony begins promptly at 3pm. Please arrive with enough time to be seated before the beginning of
+                the ceremony. Ample parking is available on-site.
+            </div>
+        </div>
+    </div>
+
+    <div class="informationgroup mb-4">
+        <h3 class="informationgroup_title">The Reception</h3>
+
+        <p><em>Hyland Hills Ski Area</em> in Bloomington, MN at <b>4:30 PM - 10:30 PM</b>.</p>
+        <div class="informationgroup_details">
+            <div class="informationgroup_details_map mx-auto">
+                <iframe
+                    width="100%"
+                    height="300"
+                    frameborder="0" style="border:0"
+                    src="https://www.google.com/maps/embed/v1/place?key=AIzaSyCHneT1cd2iz_vbmDMkIXmkvSeXL-3y7bs
+                        &q=Hyland+Hills+Ski+Area,Bloomington+MN" allowfullscreen>
+                </iframe>
+            </div>
+            <div class="informationgroup_details_text">
+                After the wedding, help us celebrate at Hyland Hills! Please proceed to Hyland immediately after the
+                ceremony for the cocktail hour followed by dinner and dancing until 10:30!
+            </div>
+        </div>
+    </div>
+
+    <div class="informationgroup mb-4">
+        <h3 class="informationgroup_title">The Accomodations</h3>
+
+        <p><em>Sheraton Bloomington Hotel</em> in Bloomington, MN.</p>
+        <div class="informationgroup_details">
+            <div class="informationgroup_details_map mx-auto">
+                <iframe
+                    width="100%"
+                    height="300"
+                    frameborder="0" style="border:0"
+                    src="https://www.google.com/maps/embed/v1/place?key=AIzaSyCHneT1cd2iz_vbmDMkIXmkvSeXL-3y7bs
+                        &q=Sheraton+Bloomington+Hotel,Bloomington+MN" allowfullscreen>
+                </iframe>
+            </div>
+            <div class="informationgroup_details_text">
+                <p>
+                    The Sheraton Bloomington Hotel is less than 5 miles from both the wedding and reception site. We
+                    have secured a group rate for the event. If you choose to book online, please use the following link
+                    to book your stay to ensure you are part of the room block:
+                    <a href="https://www.marriott.com/event-reservations/reservation-link.mi?id=1543599648901&key=GRP&app=resvlink">Book your room for our event</a>.
+                    If you would prefer to make your reservation over the phone, please call: 800-325-3535 and tell them
+                    that you are booking as part of the Ann Johnson and Will Dietrich Wedding Room block.
+                    The last date to book before the wedding is 8/14/19.
+                </p>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

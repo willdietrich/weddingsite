@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html th:replace="base :: layout('Party', ~{::template_head}, ~{::template_body})" xmlns:th="http://www.thymeleaf.org">
+
+<head th:fragment="template_head">
+</head>
+
+<body th:fragment="template_body">
+  <h2>The Wedding Party</h2>
+
+  <div class="container party">
+    <div class="row">
+      <div class="col party__label">
+        <h3>Ann</h3>
+      </div>
+      <div class="col party__label">
+        <h3>Will</h3>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col d-flex px-0 mx-3 party-member">
+        <div class="align-self-center">
+          <img class="party-member__image" th:src="@{/resources/renee.png}" th:title="Eener" th:alt="'Maid of Honor'"/>
+          <p class="party-member__title">Renee Johnson, <i>Maid of Honor</i></p>
+        </div>
+      </div>
+      <div class="col d-flex px-0 mx-3 party-member">
+        <div class="align-self-center">
+          <img class="party-member__image" th:src="@{/resources/john.jpg}" th:title="Juan" th:alt="'Best Man'"/>
+          <p class="party-member__title">John Rivera, <i>Best Man</i></p>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col d-flex px-0 mx-3 party-member">
+        <div class="align-self-center">
+          <img class="party-member__image" th:src="@{/resources/izzy.jpg}" th:title="Izzadore_Daniels" th:alt="'Maid of Honor'"/>
+          <p class="party-member__title">Isabel Johnson, <i>Maid of Honor</i></p>
+        </div>
+      </div>
+      <div class="col d-flex px-0 mx-3 party-member">
+        <div class="align-self-center">
+          <img class="party-member__image" th:src="@{/resources/kelby.jpg}" th:title="Kelbo" th:alt="'Best Man'"/>
+          <p class="party-member__title">Kelby Enevold, <i>Groomsman</i></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>
